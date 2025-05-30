@@ -112,19 +112,6 @@ Customize SharkLysis by editing these configuration files:
 2. **Detection Rules**:
 Modify the `detect_malicious_patterns()` function in `sharklysis.py` to add custom detection rules.
 
-## 🗂 Project Structure
-
-```bash
-SharkLysis/
-├── reports/          # Generated HTML reports
-├── graphs/           # Visualization images
-├── temp/             # Temporary processing files
-├── sharklysis.py     # Main analysis script
-├── requirements.txt  # Python dependencies
-├── README.md         # Documentation
-└── LICENSE           # MIT License
-```
-
 ## 🤝 Contributing
 
 We welcome contributions from the security community! Here's how to get involved:
