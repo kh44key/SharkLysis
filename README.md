@@ -1,31 +1,44 @@
-# 🦈 Sharklysis - Advanced PCAP Analyzer
+# 🦈 SharkLysis - Advanced PCAP Analysis Toolkit
 
-![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/sharklysis/pulls)
+![SharkLysis Banner](https://raw.githubusercontent.com/yourusername/SharkLysis/main/assets/banner.png)
 
-Sharklysis is a powerful Python-based network traffic analyzer for PCAP/PCAPNG files, designed for security professionals and network analysts.
+> Comprehensive network traffic analysis and threat detection for PCAP/PCAPNG files
 
-## 🌟 Features
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-- **Comprehensive Protocol Analysis**
-- **Threat Detection Engine**
-  - IOC (Indicators of Compromise) matching
-  - Port scan detection
+## Features
+
+- **Comprehensive Traffic Analysis**:
+  - Protocol distribution statistics
+  - Top talker identification
+  - Port activity monitoring
+  - DNS query analysis
+  - Network communication mapping
+  
+- **Advanced Threat Detection**:
+  - Suspicious IP/domain identification
+  - Malicious SSL certificate detection
+  - SQL injection pattern recognition
+  - XSS attack pattern detection
+  - C2 server identification
   - DNS tunneling detection
-  - Plaintext credential exposure
-- **Interactive HTML Reporting**
-- **Customizable IOC Database**
-- **Performance Optimized** for large capture files
+  
+- **Professional Reporting**:
+  - Interactive console reports
+  - Comprehensive HTML reports with visualizations
+  - Network communication graphs
+  - Timeline analysis charts
 
-## 📦 Installation
+- **Threat Intelligence Integration**:
+  - Custom IOC support
+  - Malware domain databases
+  - Suspicious IP lists
 
-### Prerequisites
-- Python 3.6+
-- Tshark (comes with Wireshark installation)
+## Installation
 
-### Quick Start
+1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/sharklysis.git
-cd sharklysis
-pip install -r requirements.txt
+git clone https://github.com/yourusername/SharkLysis.git
+cd SharkLysis
