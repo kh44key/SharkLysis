@@ -1,7 +1,5 @@
-# 🦈 SharkLysis - Advanced Network Forensic Analysis Toolkit
-
-![SharkLysis Banner](https://via.placeholder.com/1200x400/0f172a/ffffff?text=SharkLysis:+Advanced+PCAP+Analysis+and+Threat+Hunting)  
-*Comprehensive network traffic analysis, threat detection, and security reporting for cybersecurity professionals*
+![SharkLysis Banner](https://github.com/kh44key/SharkLysis/blob/main/assests/banner.png)  
+# SharkLysis - Advanced Network Forensic Analysis Toolkit
 
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
