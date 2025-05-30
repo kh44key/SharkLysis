@@ -129,7 +129,7 @@ SharkLysis/
 
 We welcome contributions from the security community! Here's how to get involved:
 
-1. **Report Issues**: Found a bug? [Open an issue](https://github.com/yourusername/SharkLysis/issues)
+1. **Report Issues**: Found a bug? [Open an issue](https://https://github.com/kh44key/SharkLysis/issues)
 2. **Feature Requests**: Suggest new features or enhancements
 3. **Pull Requests**: Submit code improvements
 4. **Documentation**: Help improve documentation and examples
