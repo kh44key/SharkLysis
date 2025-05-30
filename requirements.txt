@@ -1,4 +1,12 @@
-pyshark==0.4.3
-pygments==2.10.0
-python-dateutil==2.8.2
-tabulate==0.8.9
+pyshark==0.6.1
+python-magic==0.4.27
+cryptography==42.0.5
+geoip2==4.8.0
+whois==0.9.21
+numpy==1.26.4
+beautifulsoup4==4.12.3
+ipaddress==1.0.23
+matplotlib==3.8.3
+seaborn==0.13.2
+tqdm==4.66.2
+colorama==0.4.6
