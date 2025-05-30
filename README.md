@@ -5,8 +5,6 @@
 
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Open Issues](https://img.shields.io/github/issues-raw/yourusername/SharkLysis)](https://github.com/kh44key/SharkLysis/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/yourusername/SharkLysis)](https://github.com/kh44key/SharkLysis/commits/main)
 
 ## 🔍 Overview
 
@@ -41,7 +39,6 @@ D --> G[Forensic Analysis]
 ### 📊 Comprehensive Analysis
 - Protocol distribution statistics
 - Top talker identification
-- GeoIP mapping (with optional databases)
 - Traffic timeline visualization
 - Network communication graphs
 
@@ -54,7 +51,6 @@ D --> G[Forensic Analysis]
 ### ⚙️ Flexible Configuration
 - Custom threat intelligence feeds
 - Adjustable detection thresholds
-- GeoIP database integration
 - Extensible plugin architecture
 
 ## 🚀 Getting Started
@@ -73,10 +69,6 @@ cd SharkLysis
 
 # Install dependencies
 pip install -r requirements.txt
-
-# (Optional) Install GeoIP databases
-wget https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
-tar -xvzf GeoLite2-City.tar.gz --strip-components=1 -C ./
 ```
 
 ### Basic Usage
@@ -84,15 +76,6 @@ tar -xvzf GeoLite2-City.tar.gz --strip-components=1 -C ./
 ```bash
 python sharklysis.py <path_to_pcap_file>
 ```
-
-### Command Line Options
-| Option | Description | Example |
-|--------|-------------|---------|
-| `-o OUTPUT_DIR` | Specify output directory | `-o ./reports/` |
-| `-v` | Verbose mode (detailed logs) | `-v` |
-| `-q` | Quiet mode (minimal output) | `-q` |
-| `-t THREAT_FEED` | Custom threat intelligence file | `-t custom_iocs.txt` |
-| `--geoip` | Enable GeoIP lookups | `--geoip` |
 
 ## 📊 Sample Analysis Output
 
@@ -117,9 +100,6 @@ SQL injection patterns detected (12):
 Weak protocols detected (TLS 1.0)
 ```
 
-### HTML Report Preview
-![HTML Report Preview](https://via.placeholder.com/800x500/1e293b/ffffff?text=Professional+Security+Report+with+Visualizations)
-
 ## 🛠 Configuration
 
 Customize SharkLysis by editing these configuration files:
@@ -131,9 +111,6 @@ Customize SharkLysis by editing these configuration files:
 
 2. **Detection Rules**:
 Modify the `detect_malicious_patterns()` function in `sharklysis.py` to add custom detection rules.
-
-3. **GeoIP Databases**:
-Place `GeoLite2-ASN.mmdb` and `GeoLite2-City.mmdb` in the project root for geolocation features.
 
 ## 🗂 Project Structure
 
@@ -166,8 +143,6 @@ source venv/bin/activate
 # Install development dependencies
 pip install -r requirements-dev.txt
 
-# Run tests
-python -m unittest discover tests
 ```
 
 ## 📜 License
