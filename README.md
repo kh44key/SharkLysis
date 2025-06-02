@@ -67,12 +67,12 @@ sharklysis/
 ├── requirements.txt           # Python dependencies
 ├── README.md                 # This file
 ├── .gitignore                # Git ignore file
-├── data/                     # Threat intelligence and GeoIP data
-│   ├── iocs.txt
-│   ├── malware_domains.txt
-│   ├── suspicious_ips.txt
-│   ├── GeoLite2-City.mmdb.gz
-│   └── GeoLite2-ASN.mmdb
+├──  # Threat intelligence and GeoIP data
+|── iocs.txt
+|── malware_domains.txt
+|── suspicious_ips.txt
+|── GeoLite2-City.mmdb.gz
+|── GeoLite2-ASN.mmdb
 ├── reports/                  # Generated HTML reports
 ├── graphs/                   # Generated charts
 └── temp/                     # Temporary files
