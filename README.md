@@ -1,135 +1,105 @@
-![SharkLysis Banner](https://github.com/kh44key/SharkLysis/blob/main/assests/banner.png)  
-# SharkLysis - Advanced Network Forensic Analysis Toolkit
 
-[![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🔍 Overview
+![SharkLysis Logo](https://github.com/kh44key/SharkLysis/blob/main/assests/banner.png)  
+# SharkLysis - Advanced PCAP/PCAPNG Analyzer
 
-SharkLysis is an advanced PCAP/PCAPNG analysis tool designed for cybersecurity professionals, incident responders, and network administrators. It goes beyond basic packet inspection to provide:
+SharkLysis is a Python-based tool designed to analyze PCAP/PCAPNG files for network traffic insights and security threats. It leverages `pyshark` for packet parsing, threat intelligence for identifying malicious activity, and generates detailed HTML reports and visualizations.
 
-- Comprehensive network traffic analysis
-- Automated threat detection
-- Behavioral anomaly identification
-- Professional security reporting
-- Threat intelligence integration
+## Features
+- **Packet Analysis**: Parse PCAP/PCAPNG files to extract protocols, IP connections, DNS queries, and more.
+- **Threat Detection**: Identify malicious IPs, domains, SSL certificates, SQL injection attempts, XSS attempts, and potential C2 communications.
+- **TLS Analysis**: Detect weak ciphers, protocols, and expired or overly long-validity certificates.
+- **Geolocation**: Map IP addresses to geographic locations using GeoIP databases.
+- **WHOIS Lookup**: Retrieve domain registration details for DNS queries.
+- **Visualizations**: Generate charts (protocol distribution, top talkers, port activity, DNS queries, timeline) and network graphs.
+- **HTML Reports**: Comprehensive, styled HTML reports with embedded charts and security findings.
 
-**Ideal for**: Incident response, threat hunting, malware analysis, and network forensics.
-
-```mermaid
-graph LR
-A[PCAP/PCAPNG] --> B[Traffic Analysis]
-B --> C[Threat Detection]
-C --> D[Security Reporting]
-D --> E[Incident Response]
-D --> F[Threat Hunting]
-D --> G[Forensic Analysis]
-```
-
-## ✨ Key Features
-
-### 🕵️‍♂️ Advanced Threat Detection
-- **Malicious Pattern Recognition**: SQLi, XSS, C2 communications
-- **Anomaly Detection**: DNS tunneling, unusual ports, beaconing
-- **IoC Matching**: Custom threat intelligence integration
-- **Certificate Analysis**: Malicious SSL/TLS certificate detection
-
-### 📊 Comprehensive Analysis
-- Protocol distribution statistics
-- Top talker identification
-- Traffic timeline visualization
-- Network communication graphs
-
-### 📈 Professional Reporting
-- Interactive console reports
-- HTML reports with embedded visualizations
-- Security findings prioritization (High/Medium/Low)
-- Exportable graphs and charts
-
-### ⚙️ Flexible Configuration
-- Custom threat intelligence feeds
-- Adjustable detection thresholds
-- Extensible plugin architecture
-
-## 🚀 Getting Started
-
-### Prerequisites
+## Requirements
 - Python 3.8+
-- libpcap libraries
-- 4GB+ RAM (for large PCAP analysis)
+- Tshark (Wireshark command-line tool) installed and accessible
+- GeoIP databases (`GeoLite2-City.mmdb.gz`, `GeoLite2-ASN.mmdb`) from MaxMind
+- Dependencies listed in `requirements.txt`
 
-### Installation
+## Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/sharklysis.git
+   cd sharklysis
+   ```
 
+2. **Set Up a Virtual Environment** (recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Install Tshark**:
+   - On Ubuntu/Debian: `sudo apt-get install tshark`
+   - On macOS: `brew install wireshark`
+   - On Windows: Install Wireshark and ensure `tshark` is in your PATH.
+
+5. **Prepare Data Files**:
+   - Place `iocs.txt`, `malware_domains.txt`, and `suspicious_ips.txt` in the `data/` directory.
+   - Download and place `GeoLite2-City.mmdb.gz` and `GeoLite2-ASN.mmdb` in the `data/` directory (available from [MaxMind](https://www.maxmind.com)).
+
+## Usage
+Run the script with a PCAP/PCAPNG file as an argument:
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/SharkLysis.git
-cd SharkLysis
-
-# Install dependencies
-pip install -r requirements.txt
+python sharklysis.py path/to/capture.pcap
 ```
 
-### Basic Usage
+- The script validates the input file and processes it.
+- Outputs include:
+  - Console report summarizing traffic and security findings.
+  - HTML report in the `reports/` directory (e.g., `sharklysis_report_capture_YYYYMMDD_HHMMSS.html`).
+  - Charts in the `graphs/` directory (e.g., `protocols_capture.png`, `talkers_capture.png`).
+  - Logs in `sharklysis.log`.
 
-```bash
-python sharklysis.py <path_to_pcap_file>
+## Project Structure
+```
+sharklysis/
+├── sharklysis.py              # Main script
+├── requirements.txt           # Python dependencies
+├── README.md                 # This file
+├── .gitignore                # Git ignore file
+├── data/                     # Threat intelligence and GeoIP data
+│   ├── iocs.txt
+│   ├── malware_domains.txt
+│   ├── suspicious_ips.txt
+│   ├── GeoLite2-City.mmdb.gz
+│   └── GeoLite2-ASN.mmdb
+├── reports/                  # Generated HTML reports
+├── graphs/                   # Generated charts
+└── temp/                     # Temporary files
 ```
 
-## 📊 Sample Analysis Output
+## Notes
+- **GeoIP Databases**: Ensure `GeoLite2-City.mmdb.gz` is decompressed to `GeoLite2-City.mmdb` if required by your system.
+- **Large Files**: For PCAP files >100MB, temporary storage is used to optimize memory usage.
+- **Rate Limits**: WHOIS queries include a 1-second delay to avoid rate limiting.
+- **Logging**: Detailed logs are saved to `sharklysis.log` for debugging.
 
-### Console Report Preview
-```
------------------------------- SECURITY FINDINGS -------------------------------
+## Contributing
+Contributions are welcome! Please:
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/YourFeature`).
+3. Commit changes (`git commit -m 'Add YourFeature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
 
-Suspicious IPs detected (3):
-  - 192.168.1.105 (Known malicious)
-  - 10.0.34.22 (Suspicious activity)
-  - 185.239.242.84 (Malware C2)
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Possible C2 domains detected (2):
-  - malware-domain.com
-  - c2-server.net
+## Authors
+- Saad Ali
+- Muhammad Saad Hanif
 
-SQL injection patterns detected (12):
-  - /products.php?id=1' OR '1'='1
-  - /search.php?q=1 UNION SELECT...
-  - /admin/login.php?username=admin'--
+## Acknowledgments
+- Built with [pyshark](https://github.com/KimiNewt/pyshark), [matplotlib](https://matplotlib.org/), and [networkx](https://networkx.org/).
+- GeoIP data provided by [MaxMind](https://www.maxmind.com).
 
-Weak protocols detected (TLS 1.0)
-```
-
-## 🛠 Configuration
-
-Customize SharkLysis by editing these configuration files:
-
-1. **Threat Intelligence Feeds**:
-   - `iocs.txt` - Custom indicators of compromise
-   - `malware_domains.txt` - Known malicious domains
-   - `suspicious_ips.txt` - Known malicious IP addresses
-
-2. **Detection Rules**:
-Modify the `detect_malicious_patterns()` function in `sharklysis.py` to add custom detection rules.
-
-## 🤝 Contributing
-
-We welcome contributions from the security community! Here's how to get involved:
-
-1. **Report Issues**: Found a bug? [Open an issue](https://https://github.com/kh44key/SharkLysis/issues)
-2. **Feature Requests**: Suggest new features or enhancements
-3. **Pull Requests**: Submit code improvements
-4. **Documentation**: Help improve documentation and examples
-
-**Development Setup**:
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate
-
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-```
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
